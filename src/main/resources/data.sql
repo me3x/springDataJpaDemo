@@ -1,0 +1,1 @@
+INSERT INTO PUBLIC.part (id, name) VALUES ('1', 'Matt');

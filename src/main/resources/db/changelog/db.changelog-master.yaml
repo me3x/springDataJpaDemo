@@ -1,0 +1,15 @@
+databaseChangeLog:
+- changeSet:
+    id: 1
+    author: me3x
+    changes:
+    - insert:
+        tableName: part
+        columns:
+        - column:
+            name: id
+            value: 1
+        - column:
+            name: name
+            value: "Matt"
+        dbms: h2, oracle
