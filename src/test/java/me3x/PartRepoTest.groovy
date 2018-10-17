@@ -26,7 +26,15 @@ class PartRepoTest extends Specification {
 
     def "Should return parts"() {
         when:
-            def response = restTemplate.getForObject("${restBasePath}/parts", String.class)
+            def response = restTemplate.getForObject("${restBasePath}/participants", String.class)
+        then:
+            def json = new JsonSlurper().parseText(response)
+            json._embedded.parts[0].name == 'Matt'
+    }
+
+    def "Should return part roles"() {
+        when:
+            def response = restTemplate.getForObject("${restBasePath}/participants/search/findBy", String.class)
         then:
             def json = new JsonSlurper().parseText(response)
             json._embedded.parts[0].name == 'Matt'

@@ -12,4 +12,7 @@ databaseChangeLog:
         - column:
             name: name
             value: "Matt"
+        - column:
+              name: code
+              value: "M"
         dbms: h2, oracle

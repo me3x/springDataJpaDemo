@@ -1,6 +1,5 @@
 package me3x;
 
-import com.querydsl.core.types.Predicate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,8 +15,9 @@ public class PartController {
     PartRepo partRepo;
 
     @GetMapping("part")
-    public List<Part> findAll(Predicate predicate) {
-        Iterable<Part> parts = partRepo.findAll(predicate);
+    public List<PartRoleProjection> findAll() {
+//        Iterable<PartRoleProjection> parts = partRepo.findAll(predicate);
+        Iterable<PartRoleProjection> parts = partRepo.findBy();
         return StreamSupport.stream(parts.spliterator(), false).collect(Collectors.toList());
     }
 

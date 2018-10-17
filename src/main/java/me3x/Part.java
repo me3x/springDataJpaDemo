@@ -13,11 +13,14 @@ public class Part {
 
     @Id
     @GeneratedValue
-    Long id;
+    private Long id;
 
     @Column
-    String name;
+    private String name;
 
     @Column
-    String code;
+    private String code;
+
+//    @OneToMany(mappedBy = "part")
+//    private List<Role> roles;
 }
