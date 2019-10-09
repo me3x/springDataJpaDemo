@@ -15,6 +15,12 @@ public class PartController {
     PartRepo partRepo;
 
     @GetMapping("part")
+    public PartRoleProjection findFirst() {
+        Iterable<PartRoleProjection> parts = partRepo.findBy();
+        return StreamSupport.stream(parts.spliterator(), false).findAny().get();
+    }
+
+    @GetMapping("parts")
     public List<PartRoleProjection> findAll() {
 //        Iterable<PartRoleProjection> parts = partRepo.findAll(predicate);
         Iterable<PartRoleProjection> parts = partRepo.findBy();
